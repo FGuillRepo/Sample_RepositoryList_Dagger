@@ -62,7 +62,7 @@ class Repository_fragment : BaseFragment(), RepoListView, RepositoryAdapter.repo
                               savedInstanceState: Bundle?): View? {
          inflate = inflater.inflate(R.layout.fragment_repository, container, false)
 
-        if (utils.isConnected(context)) {
+        if (!utils.isConnected(context)) {
             repositoryListPresenter?.loadrepositoryList()
         }
         return inflate
