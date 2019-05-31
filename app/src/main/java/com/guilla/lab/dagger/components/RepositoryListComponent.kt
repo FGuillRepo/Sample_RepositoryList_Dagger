@@ -12,5 +12,6 @@ import com.guilla.lab.fragment.Repository_fragment
 @Subcomponent(modules = [RepositoryListModule::class])
 interface RepositoryListComponent {
 
+
     fun inject(activity: Repository_fragment)
 }

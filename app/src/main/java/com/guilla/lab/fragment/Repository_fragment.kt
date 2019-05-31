@@ -15,7 +15,6 @@ import com.guilla.lab.activities.RepositoryDetailsActivity
 import com.guilla.lab.adapters.RepositoryAdapter
 import com.guilla.lab.dagger.components.AppComponent
 import com.guilla.lab.dagger.modules.RepositoryListModule
-import com.guilla.lab.fragment.BaseFragment
 import com.guilla.lab.mvp.presenters.RepoListPresenter
 import com.guilla.lab.mvp.views.RepoListView
 import kotlinx.android.synthetic.main.fragment_repository.*
@@ -23,11 +22,15 @@ import kotlinx.android.synthetic.main.fragment_repository.*
 import java.util.ArrayList
 
 import com.guilla.lab.Model.Repository
+import com.guilla.lab.utils.Utils
 
 
 import javax.inject.Inject
 
 class Repository_fragment : BaseFragment(), RepoListView, RepositoryAdapter.repositoryClickListener {
+
+    @Inject
+    lateinit var utils: Utils
 
     @set:Inject
     internal var repositoryListPresenter: RepoListPresenter? = null
@@ -59,8 +62,9 @@ class Repository_fragment : BaseFragment(), RepoListView, RepositoryAdapter.repo
                               savedInstanceState: Bundle?): View? {
          inflate = inflater.inflate(R.layout.fragment_repository, container, false)
 
-        repositoryListPresenter?.loadrepositoryList()
-
+        if (utils.isConnected(context)) {
+            repositoryListPresenter?.loadrepositoryList()
+        }
         return inflate
     }
 

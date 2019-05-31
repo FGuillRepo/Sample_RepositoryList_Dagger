@@ -14,6 +14,7 @@ import com.guilla.lab.Model.Repository
 class ListPresenterImpl @Inject
 constructor(private val repositoryListView: RepoListView, private val repositoryListInteractor: RepoListInteractor) : RepoListPresenter, RepoListListener {
 
+
     override fun loadrepositoryList() {
         repositoryListView.showProgress()
         repositoryListInteractor.loadrepositoryList(this)

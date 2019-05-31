@@ -11,6 +11,7 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 import com.guilla.lab.network.RepositoryService
+import com.guilla.lab.utils.Utils
 import dagger.Module
 import dagger.Provides
 import retrofit.Endpoint
@@ -23,6 +24,11 @@ import retrofit.client.OkClient
 @Module
 class NetworkModule {
 
+    @Provides
+    @Singleton
+    fun provideUtils() : Utils {
+        return  Utils
+    }
     @Provides
     @Singleton
     fun provideLogger(): RestAdapter.Log {
