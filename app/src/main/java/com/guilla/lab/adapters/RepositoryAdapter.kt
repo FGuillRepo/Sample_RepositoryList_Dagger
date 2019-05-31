@@ -1,6 +1,7 @@
 package com.guilla.lab.adapters
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +23,10 @@ class RepositoryAdapter(private val repositoryList: ArrayList<Repository?>) : Re
     private var repositoryclickListener: repositoryClickListener? = null
 
     init {
+        Log.d("Listddd", repositoryList.get(0).toString())
+
         Collections.sort(this.repositoryList) { lhs, rhs -> lhs?.id!! - rhs?.id!! }
+
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): RecyclerView.ViewHolder {

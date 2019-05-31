@@ -1,12 +1,20 @@
 package com.guilla.lab.Model
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
+import android.arch.persistence.room.TypeConverters
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import com.guilla.lab.db.data.converter.NestedLicenceConverter
+import com.guilla.lab.db.data.converter.NestedObjectConverter
+import com.guilla.lab.db.data.converter.NestedOwnerConverter
 
 import java.io.Serializable
 
+@Entity
 class Repository : Serializable {
 
+    @PrimaryKey
     @SerializedName("id")
     @Expose
     var id: Int? = null
@@ -22,12 +30,15 @@ class Repository : Serializable {
     @SerializedName("private")
     @Expose
     var private: Boolean? = null
+
+    @TypeConverters(NestedOwnerConverter::class)
     @SerializedName("owner")
     @Expose
     var owner: Owner? = null
     @SerializedName("html_url")
     @Expose
     var htmlUrl: String? = null
+    @TypeConverters(NestedObjectConverter::class)
     @SerializedName("description")
     @Expose
     var description: Any? = null
@@ -166,6 +177,7 @@ class Repository : Serializable {
     @SerializedName("svn_url")
     @Expose
     var svnUrl: String? = null
+    @TypeConverters(NestedObjectConverter::class)
     @SerializedName("homepage")
     @Expose
     var homepage: Any? = null
@@ -199,6 +211,7 @@ class Repository : Serializable {
     @SerializedName("forks_count")
     @Expose
     var forksCount: Int? = null
+    @TypeConverters(NestedObjectConverter::class)
     @SerializedName("mirror_url")
     @Expose
     var mirrorUrl: Any? = null
@@ -208,6 +221,7 @@ class Repository : Serializable {
     @SerializedName("open_issues_count")
     @Expose
     var openIssuesCount: Int? = null
+    @TypeConverters(NestedLicenceConverter::class)
     @SerializedName("license")
     @Expose
     var license: License? = null

@@ -16,6 +16,7 @@ open class Application : Application() {
         instance = this
 
         applicationComponent = DaggerAppComponent.create()
+
     }
 
     companion object {
