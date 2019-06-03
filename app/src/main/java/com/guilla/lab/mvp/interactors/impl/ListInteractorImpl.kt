@@ -23,7 +23,7 @@ constructor(private val RepositoryService: RepositoryService) : RepoListInteract
     override fun loadrepositoryList(repositoryListListener: RepoListListener) {
         reset()
         this.repositoryListListener = repositoryListListener
-        RepositoryService.getPokedex(this)
+        RepositoryService.getRepository(this)
     }
 
     override fun cancel() {

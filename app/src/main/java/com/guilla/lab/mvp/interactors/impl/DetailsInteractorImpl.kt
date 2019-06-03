@@ -23,7 +23,7 @@ constructor(private val RepositoryService: RepositoryService) : RepoDetailsInter
     override fun loadRepositoryDetails(resourceUri: String, RepositoryDetailsListener: RepoDetailsListener) {
         reset()
         this.RepositoryDetailsListener = RepositoryDetailsListener
-        RepositoryService.getRepository(resourceUri, this)
+        RepositoryService.getRepositoryDetails(resourceUri, this)
     }
 
     override fun cancel() {
