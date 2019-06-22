@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import butterknife.ButterKnife
-import com.guilla.lab.R
 import com.guilla.lab.activities.RepositoryDetailsActivity
 import com.guilla.lab.adapters.RepositoryAdapter
 import com.guilla.lab.dagger.components.AppComponent
@@ -22,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_repository.*
 import java.util.ArrayList
 
 import com.guilla.lab.Model.Repository
+import com.guilla.lab.R
 import com.guilla.lab.utils.Utils
 
 
@@ -62,9 +62,8 @@ class Repository_fragment : BaseFragment(), RepoListView, RepositoryAdapter.repo
                               savedInstanceState: Bundle?): View? {
          inflate = inflater.inflate(R.layout.fragment_repository, container, false)
 
-        if (utils.isConnected(context)) {
             repositoryListPresenter?.loadrepositoryList()
-        }
+
         return inflate
     }
 
